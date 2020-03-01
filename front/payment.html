@@ -1,0 +1,149 @@
+<!doctype html>
+<html>
+<head>
+  <title>Nebulous</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/main.css" />
+  <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+  <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.html">Nebulous</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <script>
+
+    // Disable the button on initial page load
+
+     function enableContract() {
+       document.getElementById("contract").disabled = false;
+       document.getElementById("contract2").disabled = false;
+     };
+
+     function playGame() {
+       location.href='http://google.com';
+     };
+
+     function pay() {
+       document.getElementById("play").disabled = false;
+     }
+
+     function checkF() {
+        if (document.getElementById("checker").checked != true) {
+          document.getElementById("contract").style.visibility = "visible";
+          document.getElementById("contract2").style.visibility = "hidden";
+          console.log("jfsklfj");
+        }
+        else {
+          document.getElementById("contract").style.visibility = "hidden";
+          document.getElementById("contract2").style.visibility = "visible";
+
+        }
+        console.log("asd");
+     }
+
+    </script>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="seller.html">Lend</a>
+      </a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="buyer2.html">Rent</a>
+      </a></li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<div>
+    <section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
+    <div class="content">
+      <h1>Nebulous</h1>
+      <p class="major">Let's Dive In.</p>
+      <style>
+  .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
+  .toggle.ios .toggle-handle { border-radius: 20px; }
+</style>
+<label for="hours">Choose number of hours:</label>
+<select id="hours" name="hourss" style="width:20%">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+</select>
+</br>
+
+Privatize through Aztec:
+<input type="checkbox" id = "checker" data-toggle="toggle" onchange = "checkF()" data-style="ios">
+</br>
+      <button
+          id = "connect"
+          data-dh-feature="network"
+          data-dh-property-enable
+          onclick="enableContract()">
+          Connect
+      </button>
+      <div
+    data-dh-feature="customContract"
+    data-dh-property-contract-name="test2"
+    data-dh-property-method-name="sendEthNoArgs"
+    data-dh-property-method-id="000"
+    data-dh-property-eth-value="0.0010"
+>
+</div>
+
+<button
+    id = "contract"
+    disabled
+    data-dh-property-method-id="000"
+    data-dh-property-invoke="true"
+    onclick="pay()"
+>
+Generate
+</button>
+</br>
+<button
+    id = "contract2"
+    style = "visibility:hidden"
+    disabled
+    data-dh-property-method-id="000"
+    data-dh-property-invoke="true"
+    onclick="rentIt()"
+>
+Generate
+</button>
+
+
+</br>
+
+
+
+<input type="button" disabled id = "play" onclick="playGame()" value="Play" />    </div>
+    <div class="image">
+      <img src="img/nebula2.jpg" alt="" />
+    </div>
+
+  </div>
+  <script type="module" src="https://sdk.aztecprotocol.com/aztec.js"></script>
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/jquery.scrollex.min.js"></script>
+  <script src="assets/js/jquery.scrolly.min.js"></script>
+  <script src="assets/js/browser.min.js"></script>
+  <script src="assets/js/breakpoints.min.js"></script>
+  <script src="assets/js/util.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="https://package.dapphero.io/main.js" id="dh-apiKey" data-api="1582997696052x858422376067760100"></script>
+  <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+
+<script src="https://package.dapphero.io/main.js" id="dh-apiKey" data-api="1582997696052x858422376067760100"></script>
+</body>
+</html>

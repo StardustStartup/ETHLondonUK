@@ -205,6 +205,8 @@ xtab-filter
   }
   .cd-tab-filter li {
     display: inline-block;
+    width: 150px;
+    text-align: center;
   }
   .cd-tab-filter li.placeholder {
     display: none !important;
@@ -265,7 +267,7 @@ xgallery
   /* used in combination with text-align: justify to align gallery elements */
   opacity: 0;
   height: 0;
-  display: inline-block;
+  display: flex;
 }
 .cd-gallery img {
   display: block;

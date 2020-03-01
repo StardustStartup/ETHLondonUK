@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head>
+    <script type="text/javascript">
+        const hostAddress = '0x9a126A0930FcEaA1e3e8D73F32f4C159a29209FA';
+        // UPDATE GAME LINK BELOW!!!
+        const linkToParsec = 'http://parsec.gg/';
+        const successLink = "Successfully rented!<br><br><button onclick=\"window.open('" + linkToParsec + "', '_blank')\">Play!</button>";
+        // ASSET LINK BELOW
+        const zkAssetAddress = '0xa69AC1d8B5127F4D758F8a39374a6fBad9DBe967';
+        const apiKey = '071MZEA-WFWMGX4-JJ2C5C1-AVY458F';
+        async function startit() {
+            const result = await window.aztec.enable({ apiKey });
+            console.info('SDK successfully enabled!');
+            document.getElementById("initbutton").textContent="Initialized!";
+            document.getElementById("initbutton").disabled = true;
+            const asset = await window.aztec.zkAsset(zkAssetAddress);
+            const assetBalance = await asset.balance();
+            document.getElementById("balancedisp").textContent=String(assetBalance);
+        }
+        async function getBalance() {
+            await window.aztec.enable({ apiKey });
+            const asset = await window.aztec.zkAsset(zkAssetAddress);
+            const assetBalance = await asset.balance();
+            document.getElementById("balancedisp").textContent=String(assetBalance);
+        }
+        async function rentIt() {
+            await window.aztec.enable({ apiKey });
+            const asset = await window.aztec.zkAsset(zkAssetAddress);
+            const sendAmount = 1 * parseInt(document.getElementById("hours").value);
+
+            await asset.send(
+                [
+                    {
+                    to: hostAddress,
+                    amount: sendAmount,
+                    },
+                ],
+                {},
+            );
+            document.getElementById("rentportion").innerHTML = successLink;
+        }
+     </script>
+    <title>
+        Nebulous Portal
+    </title>
+</head>
+<body>
+    <h1>Nebulous Portal</h1>
+    <b>Balance:</b>&nbsp;&nbsp;<span id="balancedisp"> Waiting...</span><br><br>
+    <button onclick="startit()" id="initbutton">Initialize</button><br><br>
+    <button onclick="getBalance()" id="balbutton">Refresh Balance</button><br><br>
+    <hr>
+    <h3>Rent a Machine</h3>
+    <div id="rentportion">
+    <label for="hours">Choose number of hours:</label>
+    <select id="hours" name="hourss">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+    &nbsp;&nbsp;<button onclick="rentIt()">Go!</button>
+    </div>
+
+    <script type="module" src="https://sdk.aztecprotocol.com/aztec.js"></script>
+</body>
+</html>
