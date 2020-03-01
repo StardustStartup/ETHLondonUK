@@ -36,11 +36,15 @@
         if (document.getElementById("checker").checked != true) {
           document.getElementById("contract").style.visibility = "visible";
           document.getElementById("contract2").style.visibility = "hidden";
+          document.getElementById("connect").style.visibility = "visible";
+          document.getElementById("initbutton").style.visibility = "hidden";
           console.log("jfsklfj");
         }
         else {
           document.getElementById("contract").style.visibility = "hidden";
           document.getElementById("contract2").style.visibility = "visible";
+          document.getElementById("connect").style.visibility = "hidden";
+          document.getElementById("initbutton").style.visibility = "visible";
 
         }
         console.log("asd");
@@ -91,6 +95,12 @@ Privatize through Aztec:
           onclick="enableContract()">
           Connect
       </button>
+
+      <button
+      onclick="startit()"
+      style="visibility:hidden"
+      id="initbutton">
+      Connect2</button>
       <div
     data-dh-feature="customContract"
     data-dh-property-contract-name="test2"
@@ -109,7 +119,6 @@ Privatize through Aztec:
 >
 Generate
 </button>
-</br>
 <button
     id = "contract2"
     style = "visibility:hidden"
